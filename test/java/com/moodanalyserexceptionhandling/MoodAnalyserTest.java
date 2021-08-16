@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 public class MoodAnalyserTest<ExpectedException> {
     @Test
-    public void givenNullMood_ShouldReturnException() throws MoodAnalyserException {
+    public void givenNullMoodShouldReturnException() throws MoodAnalyserException {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
         try{
-            moodAnalyser.analyseMood(null);
+            moodAnalyser.analyseMood(" ");
         } catch (MoodAnalyserException e) {
-            Assertions.assertEquals("PLease Enter a Proper Message!" , e.getMessage());
+            Assertions.assertEquals(MoodAnalyserException.ExceptionType.ENTERED_EMPTY, e.getMessage());
         }
     }
 }
