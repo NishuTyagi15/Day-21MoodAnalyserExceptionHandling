@@ -3,11 +3,14 @@ package com.moodanalyserexceptionhandling;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MoodAnalyserTest {
+public class MoodAnalyserTest<ExpectedException> {
     @Test
-    public void givenNullMoodShouldReturnMessage() throws MoodAnalyserException {
+    public void givenNullMood_ShouldReturnException() throws MoodAnalyserException {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String mood = moodAnalyser.analyseMood("This is a Happy Message!:-)");
-        Assertions.assertEquals("HAPPY", mood);
+        try{
+            moodAnalyser.analyseMood(null);
+        } catch (MoodAnalyserException e) {
+            Assertions.assertEquals("PLease Enter a Proper Message!" , e.getMessage());
+        }
     }
 }
