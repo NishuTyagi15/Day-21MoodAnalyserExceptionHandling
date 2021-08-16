@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 public class MoodAnalyserTest {
     @Test
-    public void givenNullMoodShouldReturnHappy() {
+    public void givenNullMood_ShouldReturnHappy() throws MoodAnalyserException {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String mood = moodAnalyser.analyseMood("This is a Happy message!:-)");
+        String mood = moodAnalyser.analyseMood("This is a Happy Message!:-)");
         Assertions.assertEquals("HAPPY", mood);
     }
 }
